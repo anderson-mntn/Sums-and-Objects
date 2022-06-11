@@ -1,4 +1,4 @@
-//Somar array
+//Sum array
 let arr1 = [3, 3, 6, 8]
 
 let soma = arr1.reduce(function somar(a, b){
@@ -31,9 +31,57 @@ for (let i = 0; i <= arr.length; i++){
      console.log(arr)
   }
 }
-//pag.45 - Objects
+//pag.45 - Objects, Classes (or contructors)
 let obj = {
     name : {firstName : "Gandalf", lastName : "The Grey"},
     address : "Middle Earth" 
 }
-console.log(obj.name, obj.address + " <- Note that's a string")
+console.log(obj.name, obj.address + " <- Note that it's a string")
+
+//Constructors is a special function that creates and initializes an object instance of a class.
+
+//Declarando uma classe (construtor) que representa um livro:
+
+function Book (title, pages, isbn){
+    this.title = title
+    this.pages = pages
+    this.isbn = isbn
+    this.printIsbn = function (){
+     console.log(this.isbn + "this isbn")
+    }
+}
+
+//INSTANCING BOOK
+var book = new Book('title', 'pages', 'isbn');
+book.title = "LOTR" // att title
+book.isbn = "é bom"
+console.log(book.title)
+book.printIsbn()
+console.log(Book)
+
+
+//Page 55 - var, let & const
+
+//Algo to return faction. if k <= 5
+let k = 0
+let faction;
+let phrase = "for the "
+function incK(){
+    k++
+    document.write(blizzFan() + "<br>")
+}
+// function blizzardFan(){
+//     if (k <= 5){
+//         faction = "Alliance! "
+//     } else {
+//         faction = "Horde! "
+//     }
+//     return phrase + faction
+// }
+
+//Same Function but shorter
+function blizzFan(){
+    (k <= 5 ? faction = "Alliance! " : faction = "Horde! ")
+    return phrase + faction
+}
+setInterval(incK, 700)
